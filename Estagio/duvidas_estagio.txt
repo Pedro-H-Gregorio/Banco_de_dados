@@ -1,0 +1,4 @@
+Sobre o estagio obrigatorio deverá ser uma entidade a parte de estagio. 
+Poderia tranformar banca em uma entidade e fazer um atributo boleano para acessar ela ?
+
+Empresa e convenio poderia ser n:m ou n?
