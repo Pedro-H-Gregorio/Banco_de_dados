@@ -1,0 +1,45 @@
+CREATE TABLE maternidade (
+  id serial PRIMARY KEY,
+  nome varchar,
+  municipio varchar,
+  estado varchar,
+  bairro varchar,
+  rua varchar,
+  numero varchar
+);
+
+CREATE TABLE mae (
+  id serial PRIMARY KEY,
+  nome varchar,
+  bairro varchar,
+  rua varchar,
+  numero varchar,
+  data_de_nascimento varchar(12),
+  telefone varchar(10),
+  id_maternidade integer,
+  FOREIGN KEY (id_maternidade) REFERENCES maternidade(id)
+);
+
+CREATE TABLE medico (
+	CRM serial PRIMARY KEY,
+  	nome varchar,
+  	telefone varchar(10),
+  	especialidade varchar
+);
+
+CREATE TABLE bebe (
+	id serial PRIMARY KEY,
+  	nome varchar,
+  	altura varchar,
+  	peso varchar,
+  	data_de_nascimento varchar(12),
+  	id_mae integer,
+  	FOREIGN KEY (id_mae) REFERENCES mae(id)
+);
+
+CREATE TABLE medico_bebe (
+	id_bebe integer,
+  	CRM_medico integer,
+  	FOREIGN KEY (id_bebe) REFERENCES bebe(id),
+  	FOREIGN KEY (CRM_medico) REFERENCES medico(CRM)
+);
